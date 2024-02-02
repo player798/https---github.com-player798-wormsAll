@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Spieler registrieren</title>
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link type="text/css" rel="stylesheet" href="css/materialize.css" media="screen,projection">
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<h1 class="blue">Hier registrieren sich neue Spieler</h1>
+<div class="container">
+  <div class="row">
+    <div class="col l9">S
+      <h2>Registrierung</h2>
+      <form th:action="@{/authenticate/process_registerSpring}" th:objects="${player}"
+            method="post" class="input-field col">
+          <div class="col">
+            <label for="input_email">email</label>
+            <input id="input_email" type="email" th:field="*{player.email}" class="form-control" required />
+          <div class="col">
+            <label for="input_pwd">password</label>
+            <input id="input_pwd" type="password" class="form-control" th:field="*{player.password}" />
+          </div>
+          <div class="col">
+            <label for="input_uname">username</label>
+            <input id="input_uname" type="text" class="form-control" th:field="*{player.username}" />
+          </div>
+        </div>
+        <button type="submit" class="btn-floating">Absenden</button>
+      </form>
+    </div>
+      <!--
+      <div class="container">
+          <form class="form-signin" method="post" action="/login">
+              <h2 class="form-signin-heading">Please sign in</h2>
+              <p>
+                  <label for="username" class="sr-only">Username</label>
+                  <input type="text" id="username" name="username" class="form-control" placeholder="Username" required autofocus>
+              </p>
+              <p>
+                  <label for="password" class="sr-only">Password</label>
+                  <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+              </p>
+              <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+          </form>
+      </div>
+      -->
+  </div>
+</div>
+</body>
+</html>

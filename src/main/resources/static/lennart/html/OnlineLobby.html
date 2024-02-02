@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+
+
+  <!-- Bibliotheken für WebSocket und STOMP -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="../css/OnlineLobby.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.js"></script>
+   
+</head>
+
+<body>
+  <h1> Shrimps Spiel Lobby</h1>
+
+  <!-- Navigationsmenü mit Dropdowns Bootstrap -->
+
+  <!-- nav: Navigationselement. definiert es als Navigationsleiste
+     navbar-expand-lg: definiert die Größe der Leiste als large und passt es bei kleineren bildschirmen an. 
+     https://getbootstrap.com/docs/5.3/utilities/background/: kann hier als 3 parameter den Hintergrund der Navbar anpassen-->
+
+  <nav class="navbar navbar-expand-lg bg-info-subtle">
+    <!-- Container von Bootstrap der sich der Bildschirmgröße anpasst -->
+    <div class="container-fluid">
+      <!--  -->
+      <a class="navbar-brand" href="#">Optionsmenü</a>
+      <!--Button erstellen
+            class="navbar-toggler: Aussehen und Verhalten für Umschalten der Navigationsleiste definieren
+            data-bs-toggle="collapse" und data-bs-target=#navbarSupportedContent": Für das ein und ausklappen der Navigationsleiste -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+
+
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Mein Konto
+            </a>
+
+            <ul class="dropdown-menu">
+
+              <li>
+                <a class="dropdown-item" id="accountDatenAusgebenId">Accountdaten anzeigen</a>
+              </li>
+              <li id="accountDatenContainer" style="display: none;">
+                <br> <span id="accountDatenInhalt"> </span>
+              </li>
+
+              <li>
+                <a class="dropdown-item" id="privateEinladungId" href="#">gesendete Private Nachrichten</a>
+              </li>
+              <li id="gesendeteNachrichtenContainer" style="display: none;">
+                <br> <span id="gesendeteNachrichtenInhalt"> </span>
+              </li>
+
+              <li><a class="dropdown-item" href="#">Spiel History anzeigen</a></li>
+            </ul>
+          </li>
+
+
+         
+
+          <li class="nav-item">
+            <button class=" nav-link" onclick="window.location.href='http://localhost:8080/login'" ;>Einloggen</button>
+          </li>
+
+
+
+
+          <li class="nav-item">
+            <button class=" nav-link" onclick="logout();">Ausloggen</button>
+          </li>
+
+          <li class="nav-item ml-auto">
+            <a class="nav-link" href="#">Spiel Starten</a>
+        </li>
+
+          <li class="nav-item">
+            <a class="nav-link disabled" aria-disabled="true"></a>
+          </li>
+
+        </ul>
+
+       
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- Erster Abschnitt der Seite: Nachrichten Empfangen -->
+  <div class="container">
+
+
+<div id="spielerChat">
+  <h2>  Chat</h2> 
+    <textarea name="chatAusgabe" id="chatAusgabe" rows="15" cols="80"> 
+    </textarea>
+    <input type="text" name="chatEingabe" id="chatEingabe">
+    <button type="button" id="textAbsendenButton" class="btn btn-primary"  onclick="nachrichtSenden()">Senden</button>
+     
+  </div>
+          <div id="onlineSpielerAusgabe">
+    </div>
+</div>
+
+
+
+    <script src="../js/RestAbfragen.js"></script>
+    <script src="../js/WebSocket.js"></script>
+   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"></script>
+
+</body>
+
+</html>

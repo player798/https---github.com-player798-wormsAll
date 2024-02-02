@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Registrieren</title>
+    <!-- Fügen Sie hier CSS-Styles hinzu -->
+
+     <!-- Axios Bibliothek einbinden von js -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/Registrieren.css">
+</head>
+<body>
+
+    
+    <form id="registrierungsFormular" action="http://localhost:8080/authenticate/process_register" method="post">
+       
+            <h1>Shrimps</h1>
+            
+            <p><b>Neue Mitstreiter sind hier richtig!
+               <br> <br> Jetzt Registrieren und gleich mitspielen: </b></p>
+            
+    
+            <label class="label" for="email">E-mail Adresse:</label>
+            <input class = "button " type="email" id="emailForm" name="emailForm">
+    
+            <label class="label" for="password">Passwort:</label>
+            <input class = "button "  type="password" id="passwordForm" name="passwordForm">
+    
+            <label class="label" for="username">Benutzernamen:</label>
+            <input class = "button "  type="text" id="usernameForm" name="usernameForm">
+    
+            <button class = "buttonAbschicken" type="submit" class="button">Registrierung abschicken</button>
+            
+      
+    </form>
+
+
+<!--  //name="password" -->
+
+    
+<!-- Registrierungsformular für Benutzer
+         Formulardaten werden an Springboot Localhost:8080 Endpunkt:process_register versendet
+         player Objekt: Player Objekt wird an das Formular gebunden. Verknüpft die Formularfelder mit den Attributen des Player Objekts des Springboot Servers. -->
+         <!--  <form id="registrierungsFormular" action="#" th:action="http://localhost:8080/authenticate/process_register"  method="post"> -->
+            
+
+    
+
+    <script src="../js/Registrieren.js"></script>
+</body>
+</html>

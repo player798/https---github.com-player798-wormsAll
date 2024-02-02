@@ -1,0 +1,59 @@
+body {
+    font-family: 'Comic Sans MS', sans-serif;
+    background-image: url('../img/wormsHauptbildschirmHintergrundUnterwasser.png');
+    
+    background-size: cover;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.shrimp-image {
+   
+   height: 150px;
+   width: auto;
+   
+}
+
+.title {
+    margin-top: -57px;
+    height: 200px;
+    font-size: 80px;
+ 
+}
+
+.button {
+    font-size: 24px;
+    margin: 10px;
+    top: -130px;
+    position:relative;
+   
+    
+}
+
+.button1Padding {
+    padding: 10px;
+    padding-left: 31px;
+    padding-right: 30px;
+}
+
+.button2Padding {
+    padding: 10px;
+    padding-right: 44px;
+    padding-left:44px;
+    
+}
+
+.button3Padding{
+    padding: 10px;
+    padding-right: 52px;
+    padding-left: 52px;
+}
+
+.button4Padding{
+    padding: 10px;
+    padding-right: 49px;
+    padding-left: 49px;
+}

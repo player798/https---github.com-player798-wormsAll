@@ -1,0 +1,109 @@
+body {
+    font-family: 'Comic Sans MS', sans-serif;
+    background-image: url('../img/blauerHintergrund..png');
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    margin: 20px;
+ 
+}
+h1{
+  
+    margin-left:500px;
+    margin-top: 55px;
+}
+nav {
+    margin-top:60px
+}
+
+.container {
+    margin-top:20px;
+    display: grid;
+
+    grid-template-rows:  100%  ; /* Drei Zeilen, jede 33% der Höhe */
+    grid-template-columns:    90% 10%    ; /* Eine Spalte, die die volle Breite einnimmt */
+    grid-template-areas: 
+    " lobbyChat  spielerAusgabe"
+    " lobbyChat  spielerAusgabe"
+    " lobbyChat  spielerAusgabe";
+    width: auto;
+    height: auto;
+    max-width: 1920px;
+    max-height: 1920px;
+   
+
+}
+
+#accountDatenInhalt {
+    line-height: 4; 
+    font-family: Arial, Helvetica, sans-serif; /* Schriftart */
+    color: black; /* Schriftfarbe */
+    font-size: 25px; /* Schriftgröße */
+    line-height: 1.6; /* Zeilenabstand */
+    padding: 11px; /* Innenabstand */
+    
+    border-radius: 5px; /* Abgerundete Ecken */
+    background-color: #f8f8f8; /* Hintergrundfarbe */
+}
+
+#gesendeteNachrichtenInhalt {
+    line-height: 4; 
+    font-family: Arial, Helvetica, sans-serif; /* Schriftart */
+    color: black; /* Schriftfarbe */
+    font-size: 25px; /* Schriftgröße */
+    line-height: 1.6; /* Zeilenabstand */
+    padding: 11px; /* Innenabstand */
+    
+    border-radius: 5px; /* Abgerundete Ecken */
+    background-color: #f8f8f8; /* Hintergrundfarbe */  
+}
+
+#spielerChat{
+    grid-area: lobbyChat;
+    position:relative;
+}   
+
+#chatAusgabe{
+    grid-area: lobbyChat;
+    position:relative;
+    height: 450px; 
+    font-size: 16px;    /* Schriftgröße im Feld */ 
+}
+
+/** Versteckt den Scrollbalken für WebKit-basierte Browser wie Chrome und Safari */ 
+#chatAusgabe::-webkit-scrollbar {
+    display: none; /* Versteckt den Scrollbalken für WebKit-basierte Browser wie Chrome und Safari */
+}
+
+#chatEingabe {
+    grid-area: lobbyChat;
+    position:relative;
+    margin-left:3px;
+    margin-top:20px;
+    width: 550px;       /* Breite des Feldes */
+    height: 60px;       /* Höhe des Feldes */
+    font-size: 16px;    /* Schriftgröße im Feld */
+
+    
+
+}
+#textAbsendenButton{
+    grid-area: lobbyChat;
+    position:relative;
+    margin-left: 570px;
+    margin-top: -80px;
+    
+    padding:10px;
+    
+   
+}
+
+#onlineSpielerAusgabe{
+    grid-area: spielerAusgabe;
+    padding: 10px;
+    border: 1px solid #ddd;
+   background-color: #f8f8f8;
+    border-radius: 5px;
+    margin-top: 50px;     
+    height: 300px;
+    font-size: 18px;
+}

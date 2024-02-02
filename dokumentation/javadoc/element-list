@@ -1,0 +1,9 @@
+de.wise2324.puf.grpl.shrimps.shrimpsserver
+de.wise2324.puf.grpl.shrimps.shrimpsserver.config
+de.wise2324.puf.grpl.shrimps.shrimpsserver.controller
+de.wise2324.puf.grpl.shrimps.shrimpsserver.dto
+de.wise2324.puf.grpl.shrimps.shrimpsserver.entity
+de.wise2324.puf.grpl.shrimps.shrimpsserver.model
+de.wise2324.puf.grpl.shrimps.shrimpsserver.repository
+de.wise2324.puf.grpl.shrimps.shrimpsserver.service
+de.wise2324.puf.grpl.shrimps.shrimpsserver.websocket

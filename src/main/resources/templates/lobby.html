@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"  content="width=device-width, initial-scale=1.0">
+    <title>Shrimps Server Lobby Chat</title>
+    <!--
+    <link rel="stylesheet" type="text/css" th:href="@{/css/lobby/lobby_.css}" />
+    -->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/general/modal.css}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+</head>
+<body>
+    <noscript>
+        <h2> Um diese Seite nutzen zu können müssen Sie Javascript aktivieren! </h2>
+    </noscript>
+    <header>
+        Hallo, <span th:text="${player.username}" />
+        Deine Id: <span id="player_id" th:text="${player.id}" />
+    </header>
+    <nav class="light-blue lighten-1" role="navigation">
+        <div class="nav-wrapper container">
+            <div class="left"> Lobby - Chat </div>
+            <ul class="right">
+                <li>
+                    <a href="#">Chat</a>
+                </li>
+                <li>
+                    <a href="../logout">Logout</a>
+                </li>
+                <li>
+                    <a href="../game/configureSpring">Start Game</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="section no-pad-bot" id="index-banner">
+
+    </div>
+
+    <div class="container left">
+        <div class="row">
+            <div class="col">
+                <div class="card l10" style="width: 1045px; height: 700px; overflow: scroll;">
+                    <div class="card-content">
+                        <div class="chat_container">
+                            <ul id="message_container">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <form id="messageForm" name="messageForm">
+                <div class="col l10">
+                    <label>
+                        <input class="input" type="text" id="message" placeholder="Hier tippen ..." autocomplete="off"  />
+                    </label>
+                    <div class="right">
+                        <button class="btn waves-effect waves-light blue" type="submit" name="action">Senden</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <aside style="float: right">
+        <div class="card">
+            <div id="chat_user_container" class="card-content">
+
+            </div>
+        </div>
+    </aside>
+
+    <footer class="modal-fixed-footer white black-text">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div id="client_status">
+                        ... connecting ...
+                    </div>
+                    <div class="footer_spacer"> | </div>
+                    <div class="footer_message">
+                        Dies ist das Gruppenprojekt der Gruppe L - Pattern &amp; Frameworks
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="inviteModalDialog" class="modal">
+        <div id="modalContent" class="modal-content">
+            <span id="closeModalDialog" class="close-modal" onclick="closeModal()"> &times; </span>
+            Du wurdest von <span id="senderName"> </span> zu einem Spiel eingeladen. Willst du die Einladung annehmen?
+            <div id="divButtons">
+                <Button id="btnDeny"    type="button" onclick="denyInvite()"> Ablehnen </Button>
+                <Button id="btnAccept"  type="button" onclick="acceptInvite()">Annehmen </Button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Spätes importieren der Skripte damit entsprechenden, hier definierten
+         Elemente bereits bekannt sind -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+    <!-- Spring-Modell-Variablen sollten hier hin -->
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+
+        const player = /*[[${player}]]*/ null;
+        // console.log(player);
+
+        /*]]>*/
+    </script>
+    <script type="text/javascript" th:src="@{/js/lobby/lobby.js}"></script>
+</body>
+</html>

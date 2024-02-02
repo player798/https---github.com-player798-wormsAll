@@ -1,0 +1,13 @@
+body {
+    background-color: #393939;
+}
+
+.no-show {
+    display: none;
+}
+
+#myCanvas {
+    width               : 1366px;
+    height              : 768px;
+    border              : 1px solid black;
+}

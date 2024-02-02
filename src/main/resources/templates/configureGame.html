@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game Configuration</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/game/configure.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/general/modal.css}" />
+</head>
+<body>
+<header>
+    <h2>
+        Spiel Einstellungen, Spiel Id <span th:text="${game.id}"></span>
+        Du bist Spieler Nummer <span id="playerNo"></span>
+    </h2>
+</header>
+<!-- Container für 2 / 4 Panels -->
+<div class="flex-container vbox">
+    <form name="frmGameSettings">
+        <div class="flex-child-container hbox">
+            <div class="flex-child-container vbox">
+                <span> Allgemeine Einstellungen </span>
+                <table class="settings_table">
+                    <tr> <th /> <th /> <th /> <th /> </tr>
+                    <tr>
+                        <td> Level </td>
+                        <td> <Button type="button"> &larr; </Button>  </td>
+                        <td> <img alt="" src="" id="imgLevel" />      </td>
+                        <td> <Button type="button"> &rarr; </Button>  </td>
+                    </tr>
+                    <tr>
+                        <td> Runden bis SuddenDeath </td>
+                        <td> <Button type="button"> &larr; </Button> </td>
+                        <td th:switch="${game.roundToSuddenDeath}">
+                            <span th:case="-1"> &infin; </span>
+                            <span th:case="0"> Sofort   </span>
+                            <span th:case="*">
+                                <span th:text="${game.roundToSuddenDeath}"> </span>
+                            </span>
+                        </td>
+                        <td> <Button type="button"> &rarr; </Button> </td>
+                    </tr>
+                    <tr>
+                        <td> Runden Zeitlimit in s </td>
+                        <td> <Button type="button"> &larr; </Button> </td>
+                        <td th:switch="${game.roundTimeLimit}">
+                            <span th:case="-1"> &infin; </span>
+                            <span th:case="0"> N / A </span>
+                            <span th:case="*">
+                                <span th:text="${game.roundTimeLimit}"> </span>
+                            </span>
+                        </td>
+                        <td> <Button type="button"> &rarr; </Button> </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div id="playerStatsContainer" class="flex-child-container hbox">
+
+        </div>
+        <div id="buttonRange" class="flex-child-container hbox">
+            <Button id="btnReady"     class="invisible" type="button" onclick="setReadyState()"     > Bereit            </Button>
+            <Button id="btnInvite"    class="invisible" type="button" onclick="invitePlayerDialog()"> Spieler einladen  </Button>
+            <Button id="btnStartGame" class="invisible" type="button" onclick="setReadyState()"    > Spiel starten     </Button>
+        </div>
+    </form>
+
+    <div id="inviteModalDialog" class="modal">
+        <div id="modalContent" class="modal-content">
+            <span id="closeModalDialog" class="close-modal" onclick="closeModal()"> &times; </span>
+            Zum Einladen auf Namen klicken, zum Abbrechen auf X
+            <ul id="playerList">
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+    <!-- Spring-Modell-Variablen sollten hier hin -->
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+
+        const player    = /*[[${player}]]*/ null;
+        let game      = /*[[${game}]]*/ null;
+
+        /*]]>*/
+    </script>
+    <script type="text/javascript" th:src="@{/js/game/configure.js}">
+    </script>
+</body>
+</html>

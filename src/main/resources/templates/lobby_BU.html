@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"  content="width=device-width, initial-scale=1.0">
+    <title>Shrimps Server Lobby Chat</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/lobby/lobby.css}" />
+</head>
+<body>
+<noscript>
+    <h2> Um diese Seite nutzen zu können müssen Sie Javascript aktivieren! </h2>
+</noscript>
+<header>
+    <h2> Lobby - Chat - Header </h2>
+</header>
+    <section>
+        <nav>
+            Hallo, <span th:text="${player.username}" /> <br />
+            Deine Id: <span id="player_id" th:text="${player.id}" />
+            <ul>
+                <li>
+                    Chat
+                </li>
+                <li>
+                    Logout
+                </li>
+            </ul>
+        </nav>
+
+        <article>
+            <div class="chat_container">
+                <ul id="message_container">
+
+                </ul>
+            </div>
+            <form id="messageForm" name="messageForm">
+                <label>
+                    <input class="input" type="text" id="message" placeholder="Hier tippen ..." autocomplete="off" />
+                </label>
+                <button type="submit">Senden</button>
+            </form>
+        </article>
+
+        <aside>
+            <div class="chat_user_container">
+
+            </div>
+        </aside>
+    </section>
+    <footer>
+        <div class="client_status">
+            ... connecting ...
+        </div>
+        <div class="footer_spacer"> | </div>
+        <div class="footer_message">
+            Dies ist das Gruppenprojekt der Gruppe L - Pattern &amp; Frameworks
+        </div>
+    </footer>
+    <!-- Spätes importieren der Skripte damit entsprechenden, hier definierten
+         Elemente bereits bekannt sind -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+    <!-- Spring-Modell-Variablen sollten hier hin -->
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+
+        const player = /*[[${player}]]*/ null;
+        console.log(player);
+
+        /*]]>*/
+    </script>
+    <script type="text/javascript" th:src="@{/js/lobby/lobby.js}"></script>
+</body>
+</html>

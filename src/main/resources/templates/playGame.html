@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shrimps - Kampf um den Pastateller</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/game/playGame.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/general/modal.css}" />
+</head>
+<body>
+
+    <canvas id="myCanvas" height="768" width="1366"></canvas>
+
+    <div id="divLevelImages" class="no-show">
+        <!-- In diesen Elementen werden die Bilddaten die für das Level benutzt werden
+             zwischengespeichert damit ein schnellerer Zugriff gewährleistet werden kann.
+             Einzig ändern sollte sich während einer Partie hierbei die Maske.
+          -->
+        <img id="imgForeground"    src=""  alt="" />
+        <img id="imgBackground"    src=""  alt="" />
+        <img id="imgMask"          src=""  alt="" />
+        <img id="imgShrimpNormal"  src="http://localhost:8080/assets/shrimp.png" alt="" />
+        <img id="imgShrimpReverse" src="http://localhost:8080/assets/shrimp_reverse.png" alt="" />
+        <img id="imgActiveIndicator" src="http://localhost:8080/assets/active_indicator.png" alt="" />
+        <img id="imgTargetIndicator" src="http://localhost:8080/assets/target_indicator.png" alt="" />
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+    <!-- Spring-Modell-Variablen sollten hier hin -->
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+
+        const player    = /*[[${player}]]*/ null;
+        let game      = /*[[${game}]]*/ null;
+
+        /*]]>*/
+    </script>
+    <script type="text/javascript" th:src="@{/js/game/playGame.js}">
+    </script>
+</body>
+</html>
